@@ -1,0 +1,59 @@
+ -----
+ Nayidisha Jacobe Plugin
+ -----
+ Pankaj Tandon, Nov 2010 pankajtandon@gmail.com
+ -----
+
+Usage
+
+ The Nayidisha Jacobe Plugin can be used for formatting/beautifying the code and/or running a check to see if the code that is specified by the input parameter 
+ is formatted as per the configuration file specified in the configurationFile parameter. 
+ 
+
+ Jacobe can be used to format Java files from within an IDE (like Eclipse) or via the <<format>> goal of this plugin. Irrespective of the method used to format files, the <<check>> goal 
+ of this plugin can be used to ensure that the formatting is in compliance with the configuration file that has been used during formatting.
+ 
+ The <<check>> goal of this plugin uses the Jacobe configuration file specified in the plugin configuration section. It formats the original file and compares the formatted file with the original. 
+ 
+ Jacobe is not a 100% idempontent, in that, if Jacobe is used to format file A.java to B.java and again run on B.java to produce C.java, then B.java and C.java may not be identical in content. 
+ The following configuration parameters are found to cause the idempotent behavior of Jacobe to break:
+ 
++------------------------------+ 
+ //ND--wrap=80
+ //ND--wraplineterminfixop=1
+ //ND--wrapcommalineterm=1
+ //ND--wraparrayinitopenbracelineterm=1
+ //ND--wrapmethodcallopenparenlineterm=1
++------------------------------+ 
+ 
+ If you find that you do not have to use these commented out configuration parameters, then the process outlined in this {{{http://nayidisha.com/techblog/coding-standards-and-compliance}blog post}} may work for you.
+ 
+ 
+ To run the plugin issue 
+ 
++-----+
+
+mvn ndjacobe:format 
+
+OR
+
+mvn ndjacobe:check 
+
+OR
+
+mvn ndjacobe:clean 
+
++-----+
+
+ The <<format>> goal is used to format the file(s) specified in the input parameter. While doing so you may choose to overwrite the 
+ original file or create a new file with the extension specified in outputExtension.  <<failOnError>> is ignored for this goal.
+ 
+ The <<check>> goal is used to check compliance of file(s) specified in the input parameter with the jacobe configuration file specified in 
+ the configurationFile parameter and the rules parameters. <<failOnError>> is only used for this goal. <<keepJacobeFileForFailedMatches>> = true is used to debug what difference in 
+ formatting Jacobe may be expecting. 
+ 
+ To see the contents of the files that are not formatted, as the plugin runs, you can set the debug option on by supplying "-X" on the command line like you would for any maven plugin.
+
+ The <<clean>> goal is used to remove all spurious .jacobe files produced while formatting or checking.
+ 
+ To see the command that is being issued to jacobe, you can set the debug option on by supplying "-X" on the command line like you would for any maven plugin.

@@ -1,0 +1,33 @@
+
+ -----
+ Nayidisha Jacobe Plugin
+ -----
+ 
+NayiDisha Jacobe Plugin
+
+    This plugin is used to format code using the Jacobe code formatter/beautifier and also to check compliance.
+    Typically Jacobe is used from your IDE to format code. If you would like to format at build time also, this plugin provides 
+    you with a goal to do so. However, at build time, it makes more sense to check for compliance of the code 
+    to see if the formatting is compliant with the Jacobe configuration. For that purpose, 
+    this plug-in provides a goal to check compliance with the option to abort if non-compliant.  
+    
+    You will need to download jacobe from {{{http://www.tiobe.com/index.php/content/products/jacobe/Jacobe.html}here}} for this to work.
+    
+    See related blog post {{{http://nayidisha.com/techblog/coding-standards-and-compliance}here}}.
+
+* Goals Overview
+
+   The Jacobe Plugin has three goals:
+
+   * <<format>> is used to format the code. 
+   
+   * <<check>> is used to check compliance of the formatted files to the configured jacobe configuration file and rule sets.
+   
+   * <<clean>> is used to remove any spurious .jacobe file(s).
+
+* Usage
+
+   Instructions on how to use the Nayidisha Jacobe Plugin can be found {{{usage.html}here}}.
+
+
+   

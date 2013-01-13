@@ -1,0 +1,27 @@
+ -----
+ NayiDisha Jacobe Plugin
+ -----
+ Pankaj Tandon, Nov 08, pankaj@nayidisha.com
+ -----
+
+Download 
+
+    You may download this plugin by clicking {{{http://nayidisha.com/techblog/mycontent/maven-plugins/maven-ndjacobe-plugin/bin/maven-ndjacobe-plugin-1.0.0.jar}here}} 
+    and  {{{http://nayidisha.com/techblog/mycontent/maven-plugins/maven-ndjacobe-plugin/bin/pom.xml}here}}. Uploading the .jar file to your local or corporate maven repositories. 
+    Instructions on how to do so are {{{http://maven.apache.org/plugins/maven-install-plugin/usage.html} here}}.
+    
+  Here is an example, assuming that the file was downloaded to the /tmp directory:
+  
+-----------------------------
+mvn install:install-file 
+  -Dfile=/tmp/maven-ndjacobe-plugin-1.0.0.jar 
+  -DpomFile=pom.xml
+  -DgroupId=com.nayidisha.plugins
+  -DartifactId=maven-ndjacobe-plugin 
+  -Dversion=1.0.0
+  -Dpackaging=jar 
+-----------------------------
+
+    
+    
+    

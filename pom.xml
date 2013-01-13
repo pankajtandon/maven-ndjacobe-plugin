@@ -1,0 +1,123 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.nayidisha.plugins</groupId>
+  <artifactId>maven-ndjacobe-plugin</artifactId>
+  <packaging>maven-plugin</packaging>
+  <version>1.0.0</version>
+  <name>maven-ndjacobe-plugin Maven Mojo</name>
+  <description>This plugin allows for formatting and compliance check with jacobe code formatter</description>
+  <url>http://maven.apache.org</url>
+    <contributors>
+    <contributor>
+      <name>Pankaj Tandon</name>
+      <email>pankajtandon@gmail.com</email>
+      <roles>
+        <role>Engineer</role>
+      </roles>
+    </contributor>
+  </contributors>
+  
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.0</version>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin><!--
+      <plugin>            
+            <groupId>com.nayidisha.plugins</groupId>
+            <artifactId>maven-ndjacobe-plugin</artifactId> 
+            <version>1.0.0</version>
+            <configuration>
+                 <jacobeExecutable>C:\myProgramFiles\jacobe\jacobe.exe</jacobeExecutable>
+                 <configurationFile>C:\myProgramFiles\jacobe\sun.cfg</configurationFile>
+                 <input>${basedir}/src/main/java</input>           
+                      <comparisonThreshold>0.9</comparisonThreshold>
+                      <javadoc>private</javadoc>
+                      <header>${basedir}/src/main/resources/header.txt</header>
+                      <noAssert>false</noAssert>
+                      <noEnum>false</noEnum>
+                      <noBackup>true</noBackup>
+                      <overwrite>true</overwrite>
+                      <failOnError>false</failOnError>
+            </configuration>  
+     </plugin> 
+  		        
+    --></plugins>
+  </build>
+  
+  <distributionManagement>
+    <repository>
+      <id>${scm.id}</id>
+      <name>Maven Repository</name>
+      <url></url>
+    </repository>
+    <site>
+      <id></id>
+      <url>scpexe://nayidisha/prod/mvn/var/httproot/site/maven-ndjacobe-plugin</url>
+    </site>
+
+  </distributionManagement>
+  
+
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>org.apache.maven</groupId>
+  		<artifactId>maven-plugin-api</artifactId>
+  		<version>2.2.1</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.commons</groupId>
+  		<artifactId>commons-exec</artifactId>
+  		<version>1.0.1</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>commons-cli</groupId>
+  		<artifactId>commons-cli</artifactId>
+  		<version>1.2</version>
+  	</dependency>  
+  	<dependency>
+  		<groupId>commons-lang</groupId>
+  		<artifactId>commons-lang</artifactId>
+  		<version>2.4</version>
+  	</dependency> 
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>1.4</version>
+    </dependency>  	
+  </dependencies>
+
+
+  <reporting>
+    <plugins>
+    
+      <!--  produces the plugin-info.html report  -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-plugin-plugin</artifactId>
+        <version>2.3</version>
+      </plugin>
+          
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>2.2</version>
+        <reportSets>
+          <reportSet>
+            <reports></reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
+
+  
+</project>
